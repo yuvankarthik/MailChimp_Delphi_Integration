@@ -1,0 +1,39 @@
+**************************************************************************************************
+Project : MailChimpDemo
+Created On : 12-12-2021
+Modified On : 13-12-2021
+Author : Karthik Thirumoorthi
+**************************************************************************************************
+
+Error :
+--------
+Error connecting with SSL.
+error:1409442E:SSL routines:ssl3_read_bytes:tlsv1 alert protocol version.
+
+Fix :
+------
+Changes :
+
+1) IdSSLIOHandlerSocketOpenSSL1 Indy component Added in the uMain form.
+
+2) IdSSLIOHandlerSocketOpenSSL1's SSLVersions property set to [sslvSSLv2,sslvSSLv3,sslvTLSv1,sslvTLSv1_1,sslvTLSv1_2]
+
+3) IdHTTP1's IOHandler property set to IdSSLIOHandlerSocketOpenSSL1 
+
+4) Added below Indy paths in Project search path (for both x86 and x64)
+  ..\compudime-mailchimpintegration-b959f2202a35\#Resources#\__Indy-master\Core
+  ..\compudime-mailchimpintegration-b959f2202a35\#Resources#\__Indy-master\System
+  ..\compudime-mailchimpintegration-b959f2202a35\#Resources#\__Indy-master\Protocols
+
+5) Placed latest OPEN SSL DLL's (libeay32.dll & ssleay32.dll)in the application folder.
+  OPEN SSL DLL's can be found in below location,
+  ..\compudime-mailchimpintegration-b959f2202a35\#Resources#\__Supporting OPEN SSL DLL's\openssl-1.0.2o-VC2017\32 Bit
+  ..\compudime-mailchimpintegration-b959f2202a35\#Resources#\__Supporting OPEN SSL DLL's\openssl-1.0.2o-VC2017\64 Bit
+    
+
+Note : There is no code level changes done.
+
+**************************************************************************************************
+
+Supporting OPEN SSL DLL's can be found under,
+..\#ReadMe#\__Supporting OPEN SSL DLL's\

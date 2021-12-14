@@ -1,0 +1,2 @@
+Open SSL dll's can be found in the link below,
+https://indy.fulgan.com/SSL/Archive/
